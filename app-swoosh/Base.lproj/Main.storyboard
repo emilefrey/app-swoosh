@@ -59,6 +59,9 @@
                                 <state key="normal" title="GET STARTED">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YkN-EN-1us" kind="show" id="ImL-OQ-l4I"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.6114859533" blue="0.13687751470000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,19 +86,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="A3I-v2-E54" secondAttribute="trailing" id="zjG-4o-9x5"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="bgImg" destination="wEp-cL-s76" id="J8P-ck-9n4"/>
-                        <outlet property="swoosh" destination="Kxv-bX-90v" id="Twd-uh-5yW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--LeagueVC-->
         <scene sceneID="cPa-xr-zd5">
             <objects>
-                <viewController id="YkN-EN-1us" sceneMemberID="viewController">
+                <viewController id="YkN-EN-1us" customClass="LeagueVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="00d-RC-GzY"/>
                         <viewControllerLayoutGuide type="bottom" id="sWf-AU-JGc"/>
@@ -174,12 +173,28 @@
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="YkN-EN-1us" eventType="touchUpInside" id="Doz-ip-TIl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yy-CP-g0u">
+                                <rect key="frame" x="16" y="30" width="29" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="3UH-sK-lMw"/>
+                                    <constraint firstAttribute="height" constant="24" id="5Gc-ow-sEl"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <segue destination="xci-JT-ifE" kind="unwind" unwindAction="unwindFromSkillVCWithUnwindSegue:" id="Sqp-a5-wtT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sWf-AU-JGc" firstAttribute="top" secondItem="0K3-7n-ioL" secondAttribute="bottom" id="0DE-aQ-YNt"/>
+                            <constraint firstItem="9yy-CP-g0u" firstAttribute="leading" secondItem="kU2-MO-X9j" secondAttribute="leadingMargin" id="4zI-47-53E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cpf-gJ-UwK" secondAttribute="trailing" id="5uA-l0-8ui"/>
+                            <constraint firstItem="9yy-CP-g0u" firstAttribute="top" secondItem="00d-RC-GzY" secondAttribute="bottom" constant="10" id="9Bd-DM-Bcp"/>
                             <constraint firstAttribute="trailing" secondItem="0K3-7n-ioL" secondAttribute="trailing" id="9ZZ-j2-hfj"/>
                             <constraint firstItem="Cpf-gJ-UwK" firstAttribute="top" secondItem="00d-RC-GzY" secondAttribute="bottom" constant="20" id="BHg-ja-4SK"/>
                             <constraint firstItem="OY0-f8-HX5" firstAttribute="leading" secondItem="kU2-MO-X9j" secondAttribute="leadingMargin" id="Ge7-fj-PZM"/>
@@ -193,15 +208,19 @@
                             <constraint firstItem="0K3-7n-ioL" firstAttribute="leading" secondItem="kU2-MO-X9j" secondAttribute="leading" id="z5Q-OV-JvA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6vu-sM-oh3" kind="show" identifier="skillVCsegue" id="GXb-08-cMs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UO-9V-ahp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xci-JT-ifE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--SkillVC-->
         <scene sceneID="frd-vB-8yo">
             <objects>
-                <viewController id="6vu-sM-oh3" sceneMemberID="viewController">
+                <viewController id="6vu-sM-oh3" customClass="SkillVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XLn-35-Jht"/>
                         <viewControllerLayoutGuide type="bottom" id="0Dk-RN-SER"/>
@@ -296,6 +315,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="29" height="24"/>
         <image name="beginnerBallerBG" width="414" height="736"/>
         <image name="desiredLeagueBG" width="414" height="736"/>
         <image name="swooshLogo" width="119" height="20"/>
